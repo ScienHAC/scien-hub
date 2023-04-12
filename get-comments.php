@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 // read the comments from the JSON file
 $comments = json_decode(file_get_contents("https://scienhac.github.io/scien-hub/file.json"), true);
 
