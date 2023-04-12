@@ -1,6 +1,6 @@
 <?php
 // read the existing comments from the JSON file
-$comments = json_decode(file_get_contents("comments.json"), true);
+$comments = json_decode(file_get_contents("https://scienhac.github.io/scien-hub/file.json"), true);
 
 // get the comment ID from the request body
 $id = json_decode(file_get_contents("php://input"), true);
@@ -14,5 +14,5 @@ foreach ($comments as $key => $comment) {
 }
 
 // write the updated comments back to the JSON file
-file_put_contents("comments.json", json_encode(array_values($comments)));
+file_put_contents("https://scienhac.github.io/scien-hub/file.json", json_encode(array_values($comments)));
 ?>
