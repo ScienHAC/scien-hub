@@ -1,3 +1,4 @@
+<?php
 // read the existing comments from the JSON file
 $comments = json_decode(file_get_contents("https://scienhac.github.io/scien-hub/file.json"), true);
 
@@ -9,3 +10,4 @@ $comments[] = $comment;
 
 // write the comments back to the JSON file
 file_put_contents("https://scienhac.github.io/scien-hub/file.json", json_encode($comments));
+?>
