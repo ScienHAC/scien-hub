@@ -17,3 +17,4 @@ HTML;
 // Output the HTML code
 echo $html;
 echo "My first PHP script!";
+?>
