@@ -1,3 +1,75 @@
-<HTML>
-<H1>hello user</H1>
-</HTML>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="comments-section">
+        <h3>Comments:</h3>
+        <template id="comment-template">
+            <div class="comment">
+                <p class="comment-author"></p>
+                <p class="comment-content"></p>
+            </div>
+        </template>
+    </div>
+
+    <form id="comment-form">
+        <label for="comment-author">Name:</label>
+        <input type="text" id="comment-author" required>
+        <label for="comment-content">Comment:</label>
+        <textarea id="comment-content" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        function postComment(event) {
+            event.preventDefault();
+
+            const apiKey = 'AIzaSyDZhYG2aZx-9XbFzJHi0H6Xjqn2Ntvbbqo';
+            const blogUrl = window.location.href;
+            const blogId = '9160331485130872315';
+            const postId = '943659869113432918';
+            const commentsUrl = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts/${postId}/comments?key=${apiKey}`;
+            const commentForm = document.querySelector('#comment-form');
+            const authorInput = document.querySelector('#comment-author');
+            const contentInput = document.querySelector('#comment-content');
+
+            const newComment = {
+                author: {
+                    displayName: authorInput.value
+                },
+                content: contentInput.value
+            };
+
+            fetch(commentsUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newComment)
+            })
+                .then(response => response.json())
+                .then(() => {
+                    commentForm.reset();
+                    fetchComments();
+                })
+                .catch(error => console.error(error));
+        }
+
+        const commentForm = document.querySelector('#comment-form');
+        commentForm.addEventListener('submit', postComment);
+
+
+    </script>
+
+</body>
+
+</html>
