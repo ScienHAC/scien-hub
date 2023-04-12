@@ -8,4 +8,4 @@ $comment = json_decode(file_get_contents("php://input"), true);
 $comments[] = $comment;
 
 // write the comments back to the JSON file
-file_put_contents("comments.json", json_encode($comments));
+file_put_contents("https://scienhac.github.io/scien-hub/file.json", json_encode($comments));
