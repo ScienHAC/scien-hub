@@ -1,8 +1,9 @@
 let type_script = document.createElement('script');
 type_script.setAttribute('type', 'text/javascript');
+type_script.setAttribute('id', 'typed');
 type_script.setAttribute('src', 'https://s3.amazonaws.com/myadvobuck/static/libs/typed.min.js');
 document.head.appendChild(type_script);
-console.log(type_script.innerHTML);
+console.log(document.querySelector('#typed').innerHTML);
 var typed = new Typed('.type_ty', {  
     strings: [  
         "Welcome to ScienHAC",  
