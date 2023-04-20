@@ -319,6 +319,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 scrollbar.addEventListener(startEvent, function (event) {
+                    scrollThumb.classList.add("custom-scrollbar-div-v-m");
+                    scrollbar.classList.add("custom-scrollbar-track-div-v-m");
                     document.body.style.cursor = 'grab';
                     const clickPosition = isTouchDevice ? event.touches[0].clientY - scrollbar.getBoundingClientRect().top : event.clientY - scrollbar.getBoundingClientRect().top;
                     const thumbHeight = scrollThumb.getBoundingClientRect().height;
@@ -338,8 +340,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         left: a.scrollLeft,
                     });
                 });
+                
+                scrollbar.addEventListener("mouseenter", function () {
+                    scrollThumb.classList.add("custom-scrollbar-div-v-m");
+                    scrollbar.classList.add("custom-scrollbar-track-div-v-m");
+                });
 
                 scrollThumb.addEventListener(startEvent, function (e) {
+                    scrollThumb.classList.add("custom-scrollbar-div-v-m");
+                    scrollbar.classList.add("custom-scrollbar-track-div-v-m");
                     document.body.style.cursor = 'grab';
                     isDragging = true;
                     startY = isTouchDevice ? e.touches[0].clientY - scrollThumb.offsetTop : e.clientY - scrollThumb.offsetTop;
