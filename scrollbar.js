@@ -475,8 +475,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         left: scrollPosition,
                     });
                 });
+                
+                scrollbar.addEventListener("mouseenter", function () {
+                    scrollThumb.classList.add("custom-scrollbar-div-m");
+                    scrollbar.classList.add("custom-scrollbar-track-div-m");
+                });
 
                 scrollThumb.addEventListener(startEvent, function (e) {
+                    scrollThumb.classList.add("custom-scrollbar-div-m");
+                    scrollbar.classList.add("custom-scrollbar-track-div-m");
                     document.body.style.cursor = 'grab';
                     isDragging = true;
                     startX = isTouchDevice ? e.touches[0].clientX - scrollThumb.offsetLeft : e.clientX - scrollThumb.offsetLeft;
