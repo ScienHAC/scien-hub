@@ -1,4 +1,4 @@
-/*document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", () => {
         const func_hor = () => {
             let isDragging = false;
@@ -277,9 +277,9 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         func_hor();
     });
-});*/
+});
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", () => {
         const func_ver_m = () => {
             let isDragging = false;
@@ -533,4 +533,4 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         func_hor_m();
     });
-});
+});*/
