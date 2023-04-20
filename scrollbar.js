@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 var scrollbar = a.parentNode.querySelector('.custom-scrollbar-track-div-v');
                 var scrollThumb = scrollbar.querySelector('.custom-scrollbar-div-v');
 
-                scrollbar.style.height = `${a.offsetHeight}px`;
+                scrollbar.style.height = `${a.offsetHeight-5}px`;
 
                 function setScrollThumbHeight() {
                     const contentHeight = a.scrollHeight;
