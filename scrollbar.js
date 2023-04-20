@@ -319,8 +319,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 scrollbar.addEventListener(startEvent, function (event) {
-                    scrollThumb.classList.add("custom-scrollbar-div-v-m");
-                    scrollbar.classList.add("custom-scrollbar-track-div-v-m");
                     document.body.style.cursor = 'grab';
                     const clickPosition = isTouchDevice ? event.touches[0].clientY - scrollbar.getBoundingClientRect().top : event.clientY - scrollbar.getBoundingClientRect().top;
                     const thumbHeight = scrollThumb.getBoundingClientRect().height;
@@ -340,20 +338,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         left: a.scrollLeft,
                     });
                 });
-                
-                scrollbar.addEventListener("mouseenter", function () {
-                    scrollThumb.classList.add("custom-scrollbar-div-v-m");
-                    scrollbar.classList.add("custom-scrollbar-track-div-v-m");
-                });
-                
-                scrollbar.addEventListener("mouseleave", function () {
-                    scrollThumb.classList.remove("custom-scrollbar-div-v-m");
-                    scrollbar.classList.remove("custom-scrollbar-track-div-v-m");
-                });
 
                 scrollThumb.addEventListener(startEvent, function (e) {
-                    scrollThumb.classList.add("custom-scrollbar-div-v-m");
-                    scrollbar.classList.add("custom-scrollbar-track-div-v-m");
                     document.body.style.cursor = 'grab';
                     isDragging = true;
                     startY = isTouchDevice ? e.touches[0].clientY - scrollThumb.offsetTop : e.clientY - scrollThumb.offsetTop;
@@ -380,15 +366,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 scrollThumb.addEventListener(startEvent, () => {
                     document.addEventListener(moveEvent, onTouchMove);
-                    scrollThumb.classList.add("custom-scrollbar-div-v-m");
-                    scrollbar.classList.add("custom-scrollbar-track-div-v-m");
                 });
                 document.addEventListener(endEvent, function () {
                     isDragging = false;
                     document.body.style.cursor = 'auto';
                     document.removeEventListener(moveEvent, onTouchMove);
-                    scrollThumb.classList.remove("custom-scrollbar-div-v-m");
-                    scrollbar.classList.remove("custom-scrollbar-track-div-v-m");
                 });
 
                 a.addEventListener(scrollEvent, function () {
@@ -484,20 +466,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         left: scrollPosition,
                     });
                 });
-                
-                scrollbar.addEventListener("mouseenter", function () {
-                    scrollThumb.classList.add("custom-scrollbar-div-m");
-                    scrollbar.classList.add("custom-scrollbar-track-div-m");
-                });
-                
-                scrollbar.addEventListener("mouseleave", function () {
-                    scrollThumb.classList.remove("custom-scrollbar-div-m");
-                    scrollbar.classList.remove("custom-scrollbar-track-div-m");
-                });
 
                 scrollThumb.addEventListener(startEvent, function (e) {
-                    scrollThumb.classList.add("custom-scrollbar-div-m");
-                    scrollbar.classList.add("custom-scrollbar-track-div-m");
                     document.body.style.cursor = 'grab';
                     isDragging = true;
                     startX = isTouchDevice ? e.touches[0].clientX - scrollThumb.offsetLeft : e.clientX - scrollThumb.offsetLeft;
@@ -526,13 +496,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     isDragging = false;
                     document.body.style.cursor = 'auto';
                     document.removeEventListener(moveEvent, onMouseMove);
-                    scrollThumb.classList.remove("custom-scrollbar-div-m");
-                    scrollbar.classList.remove("custom-scrollbar-track-div-m");
                 }
                 scrollThumb.addEventListener(startEvent, () => {
                     document.addEventListener(moveEvent, onMouseMove);
-                    scrollThumb.classList.add("custom-scrollbar-div-m");
-                    scrollbar.classList.add("custom-scrollbar-track-div-m");
                 });
                 document.addEventListener(endEvent, onMouseUp);
                 document.addEventListener(scrollEvent, function () {
