@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 scrollbar.style.width = `${a.offsetWidth}px`;
 
                 function setScrollThumbWidth() {
-                    const a = document.querySelector('.a');
+                    const a = document.querySelector('code');
                     const contentWidth = a.scrollWidth;
                     const viewportWidth = a.offsetWidth;
                     const scrollbarWidth = scrollbar.offsetWidth;
