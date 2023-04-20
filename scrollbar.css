@@ -4,6 +4,7 @@
 }
 
 .custom-scrollbar-track-div {
+    z-index: 999;
     position: absolute;
     visibility: hidden;
     border-radius: 40px;
