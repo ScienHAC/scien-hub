@@ -1,1 +1,308 @@
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 
+.custom-scrollbar-track-div {
+    z-index: 999;
+    position: absolute;
+    visibility: hidden;
+    border-radius: 40px;
+    overflow: hidden;
+    background-image: linear-gradient(to left, #52595e, #121f2c);
+    position: absolute;
+    height: 10px;
+    margin-top: 0vh;
+    bottom: 0;
+    left: 0;
+    animation: scbar1 5s ease-in-out infinite forwards reverse;
+}
+
+.custom-scrollbar-track-div:hover {
+    visibility: visible;
+    opacity: 0.7;
+    border-radius: 100px;
+    overflow: hidden;
+    background-color: blue;
+    position: absolute;
+    height: 20px;
+    bottom: 0;
+    left: 0;
+    animation: scbar1 5s ease-in-out infinite forwards;
+}
+
+.custom-scrollbar-track-div:hover .custom-scrollbar-div {
+    visibility: visible;
+    height: 20px;
+}
+
+.custom-scrollbar-div {
+    box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
+    visibility: visible;
+    border-radius: 40px;
+    bottom: 0;
+    overflow: hidden;
+    position: relative;
+    width: 10vw;
+    height: 10px;
+    background-image: linear-gradient(to left, #833ab4, #fd1d1d, #fcb045);
+    animation: scbar2 5s ease-in-out infinite forwards alternate;
+}
+
+.custom-scrollbar-div::before {
+    content: '';
+    filter: blur(10px);
+    box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
+    visibility: visible;
+    border-radius: 40px;
+    bottom: 0;
+    overflow: hidden;
+    position: relative;
+    width: 10vw;
+    height: 10px;
+    background-image: linear-gradient(to left, #833ab4, #fd1d1d, #fcb045);
+}
+
+.custom-scrollbar-div::after {
+    content: '';
+    filter: blur(30px);
+    box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
+    visibility: visible;
+    border-radius: 40px;
+    bottom: 0;
+    overflow: hidden;
+    position: relative;
+    width: 10vw;
+    height: 10px;
+    background-image: linear-gradient(to left, #833ab4, #fd1d1d, #fcb045);
+}
+
+@keyframes scbar1 {
+
+    0%,
+    100% {
+        filter: opacity(0.9) brightness(100%) contrast(100%) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: opacity(0.4) brightness(200%) contrast(150%) hue-rotate(360deg);
+    }
+}
+
+@keyframes scbar2 {
+
+    0%,
+    100% {
+        filter: contrast(120%) drop-shadow(0px 0px 0px hsla(189, 13%, 20%, 0.473)) opacity(1) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: contrast(150%) drop-shadow(0px 3px 5px hsla(189, 13%, 20%, 0.473)) opacity(0.7) hue-rotate(360deg);
+    }
+}
+
+
+@keyframes scbar3 {
+
+    0%,
+    100% {
+        filter: opacity(1) brightness(100%) contrast(100%) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: opacity(0.7) brightness(200%) contrast(200%) hue-rotate(360deg);
+    }
+}
+
+.custom-scrollbar-div:active {
+    border-radius: 100px;
+    height: 20px;
+    animation: scbar3 5s ease-in-out infinite forwards;
+    cursor: grab;
+    user-select: none;
+}
+
+.custom-scrollbar-div:hover {
+    border-radius: 100px;
+    height: 20px;
+    cursor: grab;
+    user-select: none;
+    animation: scbar3 5s ease-in-out infinite forwards;
+}
+
+.custom-scrollbar-track-div-v {
+    position: absolute;
+    visibility: hidden;
+    border-radius: 40px;
+    overflow: hidden;
+    background-image: linear-gradient(to top, #52595e, #121f2c);
+    position: absolute;
+    width: 10px;
+    margin-top: 0vh;
+    top: 0;
+    right: 0;
+    animation: scbar1 5s ease-in-out infinite forwards reverse;
+}
+
+.custom-scrollbar-track-div-v:hover {
+    visibility: visible;
+    opacity: 0.7;
+    border-radius: 100px;
+    overflow: hidden;
+    background-color: blue;
+    position: absolute;
+    width: 20px;
+    top: 0;
+    right: 0;
+    animation: scbar1 5s ease-in-out infinite forwards;
+}
+
+.custom-scrollbar-track-div-v:hover .custom-scrollbar-div-v {
+    visibility: visible;
+    width: 20px;
+}
+
+.custom-scrollbar-div-v {
+    box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
+    visibility: visible;
+    border-radius: 40px;
+    top: 0;
+    overflow: hidden;
+    position: relative;
+    width: 10px;
+    height: 10vh;
+    background-image: linear-gradient(to top, #833ab4, #fd1d1d, #fcb045);
+    animation: scbar2 5s ease-in-out infinite forwards alternate;
+}
+
+.custom-scrollbar-div-v::before {
+    content: '';
+    filter: blur(10px);
+    box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
+    visibility: visible;
+    border-radius: 40px;
+    top: 0;
+    overflow: hidden;
+    position: relative;
+    width: 10px;
+    height: 10vh;
+    background-image: linear-gradient(to top, #833ab4, #fd1d1d, #fcb045);
+}
+
+.custom-scrollbar-div-v::after {
+    content: '';
+    filter: blur(30px);
+    box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
+    visibility: visible;
+    border-radius: 40px;
+    top: 0;
+    overflow: hidden;
+    position: relative;
+    width: 10px;
+    height: 10vh;
+    background-image: linear-gradient(to top, #833ab4, #fd1d1d, #fcb045);
+}
+
+@keyframes scbar1 {
+
+    0%,
+    100% {
+        filter: opacity(0.9) brightness(100%) contrast(100%) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: opacity(0.4) brightness(200%) contrast(150%) hue-rotate(360deg);
+    }
+}
+
+@keyframes scbar2 {
+
+    0%,
+    100% {
+        filter: contrast(120%) drop-shadow(0px 0px 0px hsla(189, 13%, 20%, 0.473)) opacity(1) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: contrast(150%) drop-shadow(0px 3px 5px hsla(189, 13%, 20%, 0.473)) opacity(0.7) hue-rotate(360deg);
+    }
+}
+
+
+@keyframes scbar3 {
+
+    0%,
+    100% {
+        filter: opacity(1) brightness(100%) contrast(100%) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: opacity(0.7) brightness(200%) contrast(200%) hue-rotate(360deg);
+    }
+}
+
+.custom-scrollbar-div-v:active {
+    border-radius: 100px;
+    width: 20px;
+    animation: scbar3 5s ease-in-out infinite forwards;
+    cursor: grab;
+    user-select: none;
+}
+
+.custom-scrollbar-div-v:hover {
+    border-radius: 100px;
+    width: 20px;
+    cursor: grab;
+    user-select: none;
+    animation: scbar3 5s ease-in-out infinite forwards;
+}
+
+p,
+h1 {
+    color: #42c4d841;
+    font-family: Balsamiq Sans;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.code-container {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: text;
+}
+
+code {
+    max-height: 1000px;
+    overflow: auto;
+}
+
+.btn_copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1em;
+    right: 0em;
+    width: 4em;
+    height: 2em;
+}
+
+.code-container button {
+    position: absolute;
+    background-image: linear-gradient(45deg, rgba(36, 36, 43, 0.5), rgba(54, 45, 45, 0.596));
+    opacity: 0.5;
+    border-radius: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+
+.code-container:hover button {
+    display: block;
+}
