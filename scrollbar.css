@@ -139,7 +139,7 @@
     position: absolute;
     width: 10px;
     margin-top: 0vh;
-    top: 0;
+    top: 2em;
     right: 0;
     animation: scbar1 5s ease-in-out infinite forwards reverse;
 }
@@ -152,7 +152,7 @@
     background-color: blue;
     position: absolute;
     width: 20px;
-    top: 0;
+    top: 2em;
     right: 0;
     animation: scbar1 5s ease-in-out infinite forwards;
 }
@@ -166,7 +166,7 @@
     box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
     visibility: visible;
     border-radius: 40px;
-    top: 0;
+    top: 2em;
     overflow: hidden;
     position: relative;
     width: 10px;
@@ -181,7 +181,7 @@
     box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
     visibility: visible;
     border-radius: 40px;
-    top: 0;
+    top: 2em;
     overflow: hidden;
     position: relative;
     width: 10px;
@@ -195,7 +195,7 @@
     box-shadow: 0px 3px 1px rgba(27, 57, 66, 0.781);
     visibility: visible;
     border-radius: 40px;
-    top: 0;
+    top: 2em;
     overflow: hidden;
     position: relative;
     width: 10px;
