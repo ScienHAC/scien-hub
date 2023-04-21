@@ -330,6 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
                 scrollThumb.addEventListener(startEvent, function (e) {
+                    scrollThumb.style.display = 'none';
                     document.body.style.cursor = 'grab';
                     isDragging = true;
                     startY = isTouchDevice ? e.touches[0].clientY - scrollThumb.offsetTop : e.clientY - scrollThumb.offsetTop;
