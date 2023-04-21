@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", () => {
         const func_hor = () => {
             let isDragging = false;
@@ -277,9 +277,9 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         func_hor();
     });
-});
+});*/
 
-/*document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", () => {
         const func_ver_m = () => {
             let isDragging = false;
@@ -288,28 +288,22 @@ document.addEventListener("DOMContentLoaded", function () {
             let startX = 0;
             let scrollLeft = 0;
             let scrollRight = 0;
-
             const isTouchDevice = 'ontouchstart' in document.documentElement;
             const scrollEvent = isTouchDevice ? 'touchmove' : 'scroll';
             const startEvent = isTouchDevice ? 'touchstart' : 'mousedown';
             const endEvent = isTouchDevice ? 'touchend' : 'mouseup';
             const moveEvent = isTouchDevice ? 'touchmove' : 'mousemove';
-
             var a = document.querySelectorAll('code');
             a.forEach((a) => {
                 let Cst = document.createElement('div');
                 Cst.setAttribute('class', 'custom-scrollbar-track-div-v');
                 a.appendChild(Cst);
-
                 let Csb = document.createElement('div');
                 Csb.setAttribute('class', 'custom-scrollbar-div-v');
                 Cst.appendChild(Csb);
-
                 var scrollbar = a.parentNode.querySelector('.custom-scrollbar-track-div-v');
                 var scrollThumb = scrollbar.querySelector('.custom-scrollbar-div-v');
-
                 scrollbar.style.height = `${a.offsetHeight-5}px`;
-
                 function setScrollThumbHeight() {
                     const contentHeight = a.scrollHeight;
                     const viewportHeight = a.offsetHeight;
@@ -317,7 +311,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     const scrollThumbHeight = Math.max((viewportHeight / contentHeight) * scrollbarHeight, 30);
                     scrollThumb.style.height = `${scrollThumbHeight}px`;
                 }
-
                 scrollbar.addEventListener(startEvent, function (event) {
                     document.body.style.cursor = 'grab';
                     const clickPosition = isTouchDevice ? event.touches[0].clientY - scrollbar.getBoundingClientRect().top : event.clientY - scrollbar.getBoundingClientRect().top;
@@ -327,18 +320,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     const maxThumbTop = trackHeight - thumbHeight;
                     const newThumbTop = Math.min(Math.max(thumbPosition, 0), maxThumbTop);
                     scrollThumb.style.top = `${newThumbTop}px`;
-
                     const scrollPercent = newThumbTop / maxThumbTop;
                     const contentHeight = a.scrollHeight;
                     const totalScrollHeight = contentHeight - window.innerHeight;
                     const scrollPosition = totalScrollHeight * scrollPercent;
-
                     a.scrollTo({
                         top: scrollPosition,
                         left: a.scrollLeft,
                     });
                 });
-
                 scrollThumb.addEventListener(startEvent, function (e) {
                     document.body.style.cursor = 'grab';
                     isDragging = true;
@@ -346,7 +336,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     scrollTop = a.scrollTop;
                     e.preventDefault();
                 });
-
                 function onTouchMove(e) {
                     if (isDragging) {
                         let newTop = isTouchDevice ? e.touches[0].clientY - startY : e.clientY - startY;
@@ -363,7 +352,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
                 }
-
                 scrollThumb.addEventListener(startEvent, () => {
                     document.addEventListener(moveEvent, onTouchMove);
                 });
@@ -372,8 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.body.style.cursor = 'auto';
                     document.removeEventListener(moveEvent, onTouchMove);
                 });
-
-                a.addEventListener(scrollEvent, function () {
+                a.addEventListener('scroll', function () {
                     const contentHeight = a.scrollHeight;
                     const viewportHeight = a.offsetHeight;
                     const scrollTop = a.scrollTop;
@@ -396,9 +383,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         scrollbar.style.display = 'none';
                     }
                 }
-
                 checkScrollbarVisibility();
-
                 setScrollThumbHeight();
                 window.addEventListener('resize', setScrollThumbHeight);
             });
@@ -406,7 +391,6 @@ document.addEventListener("DOMContentLoaded", function () {
         func_ver_m();
     });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", () => {
         const func_hor_m = () => {
@@ -416,28 +400,22 @@ document.addEventListener("DOMContentLoaded", function () {
             let startX = 0;
             let scrollLeft = 0;
             let scrollRight = 0;
-
             const isTouchDevice = 'ontouchstart' in document.documentElement;
             const scrollEvent = isTouchDevice ? 'touchmove' : 'scroll';
             const startEvent = isTouchDevice ? 'touchstart' : 'mousedown';
             const endEvent = isTouchDevice ? 'touchend' : 'mouseup';
             const moveEvent = isTouchDevice ? 'touchmove' : 'mousemove';
-
             var a = document.querySelectorAll('code');
             a.forEach((a) => {
                 let Cst = document.createElement('div');
                 Cst.setAttribute('class', 'custom-scrollbar-track-div');
                 a.appendChild(Cst);
-
                 let Csb = document.createElement('div');
                 Csb.setAttribute('class', 'custom-scrollbar-div');
                 Cst.appendChild(Csb);
-
                 var scrollbar = a.parentNode.querySelector('.custom-scrollbar-track-div');
                 var scrollThumb = scrollbar.querySelector('.custom-scrollbar-div');
-
                 scrollbar.style.width = `${a.offsetWidth}px`;
-
                 function setScrollThumbWidth() {
                     const contentWidth = a.scrollWidth;
                     const viewportWidth = a.offsetWidth;
@@ -445,7 +423,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     const scrollThumbWidth = Math.max((viewportWidth / contentWidth) * scrollbarWidth, 30);
                     scrollThumb.style.width = `${scrollThumbWidth}px`;
                 }
-
                 scrollbar.addEventListener(startEvent, function (event) {
                     document.body.style.cursor = 'grab';
                     const clickPosition = isTouchDevice ? event.touches[0].clientX - scrollbar.getBoundingClientRect().left : event.clientX - scrollbar.getBoundingClientRect().left;
@@ -455,18 +432,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     const maxThumbLeft = trackWidth - thumbWidth;
                     const newThumbLeft = Math.min(Math.max(thumbPosition, 0), maxThumbLeft);
                     scrollThumb.style.left = `${newThumbLeft}px`;
-
                     const scrollPercent = newThumbLeft / maxThumbLeft;
                     const contentWidth = a.scrollWidth;
                     const totalScrollWidth = contentWidth - window.innerWidth;
                     const scrollPosition = totalScrollWidth * scrollPercent;
-
                     a.scrollTo({
                         top: a.scrollTop,
                         left: scrollPosition,
                     });
                 });
-
                 scrollThumb.addEventListener(startEvent, function (e) {
                     document.body.style.cursor = 'grab';
                     isDragging = true;
@@ -474,7 +448,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     scrollLeft = a.scrollLeft;
                     e.preventDefault();
                 });
-
                 function onMouseMove(e) {
                     if (isDragging) {
                         let newLeft = isTouchDevice ? e.touches[0].clientX - startX : e.clientX - startX;
@@ -491,7 +464,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
                 }
-
                 function onMouseUp() {
                     isDragging = false;
                     document.body.style.cursor = 'auto';
@@ -506,14 +478,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     const viewportWidth = a.offsetWidth;
                     const scrollbarWidth = scrollbar.offsetWidth;
                     const isScrolled = contentWidth > viewportWidth;
-
                     scrollbar.style.display = isScrolled ? 'block' : 'none';
                     setScrollThumbWidth();
-
                     const scrollPercent = a.scrollLeft / (contentWidth - viewportWidth);
                     const maxThumbLeft = scrollbarWidth - scrollThumb.offsetWidth;
                     const thumbLeft = scrollPercent * maxThumbLeft;
                     scrollThumb.style.left = `${thumbLeft}px`;
+                });
+                a.addEventListener('scroll', (e) => {
+                    const pxToVw = (scrollThumb.offsetWidth / a.offsetWidth) * 100;
+                    const totalWidth = a.scrollWidth - a.clientWidth;
+                    const initialThumbLeft = (parseInt(scrollThumb.style.left) + scrollThumb.offsetWidth) / a.offsetWidth * 100 - pxToVw;
+                    scrollThumb.style.left = `${initialThumbLeft}vw`;
+                    const wdA = (scrollbar.offsetWidth / a.offsetWidth) * 100 - pxToVw;
+                    let total_allow_width = scrollbar.offsetWidth - scrollThumb.offsetWidth;
+                    scrollThumb.style.left = `${(a.scrollLeft / totalWidth) * total_allow_width}px`;
+                    e.preventDefault();
                 });
                 function checkScrollbarVisibility() {
                     const contentWidth = a.scrollWidth;
@@ -527,10 +507,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         scrollbar.style.display = 'none';
                     }
                 }
-
                 checkScrollbarVisibility();
+                setScrollThumbWidth();
             });
         };
         func_hor_m();
     });
-});*/
+});
