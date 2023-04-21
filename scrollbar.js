@@ -312,6 +312,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     scrollThumb.style.height = `${scrollThumbHeight}px`;
                 }
                 scrollbar.addEventListener(startEvent, function (event) {
+                    scrollThumb.style.display = 'none';
                     document.body.style.cursor = 'grab';
                     const clickPosition = isTouchDevice ? event.touches[0].clientY - scrollbar.getBoundingClientRect().top : event.clientY - scrollbar.getBoundingClientRect().top;
                     const thumbHeight = scrollThumb.getBoundingClientRect().height;
@@ -338,6 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     e.preventDefault();
                 });
                 function onTouchMove(e) {
+                    scrollThumb.style.display = 'none';
                     if (isDragging) {
                         let newTop = isTouchDevice ? e.touches[0].clientY - startY : e.clientY - startY;
                         newTop = Math.max(newTop, 0);
