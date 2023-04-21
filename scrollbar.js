@@ -311,8 +311,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     const scrollThumbHeight = Math.max((viewportHeight / contentHeight) * scrollbarHeight, 30);
                     scrollThumb.style.height = `${scrollThumbHeight}px`;
                 }
+                let scrollbar_scrollthumb_value = () => {
+                    if (isTouchDevice) {
+                        scrollbar.style.visibility = 'visible';
+                        scrollbar.style.width = '20px';
+                        scrollThumb.style.width = '20px';
+                    }
+                }
+                let scrollbar_scrollthumb_value_r = () => {
+                    if (isTouchDevice) {
+                        scrollbar.style.visibility = 'hidden';
+                        scrollbar.style.width = '15px';
+                        scrollThumb.style.width = '15px';
+                    }
+                }
                 scrollbar.addEventListener(startEvent, function (event) {
-                    scrollbar.style.visibility = 'visible';
+                    scrollbar_scrollthumb_value();
                     document.body.style.cursor = 'grab';
                     const clickPosition = isTouchDevice ? event.touches[0].clientY - scrollbar.getBoundingClientRect().top : event.clientY - scrollbar.getBoundingClientRect().top;
                     const thumbHeight = scrollThumb.getBoundingClientRect().height;
@@ -331,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
                 scrollThumb.addEventListener(startEvent, function (e) {
-                    scrollbar.style.visibility = 'visible';
+                    scrollbar_scrollthumb_value();
                     document.body.style.cursor = 'grab';
                     isDragging = true;
                     startY = isTouchDevice ? e.touches[0].clientY - scrollThumb.offsetTop : e.clientY - scrollThumb.offsetTop;
@@ -339,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     e.preventDefault();
                 });
                 function onTouchMove(e) {
-                    scrollbar.style.visibility = 'visible';
+                    scrollbar_scrollthumb_value();
                     if (isDragging) {
                         let newTop = isTouchDevice ? e.touches[0].clientY - startY : e.clientY - startY;
                         newTop = Math.max(newTop, 0);
@@ -362,6 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     isDragging = false;
                     document.body.style.cursor = 'auto';
                     document.removeEventListener(moveEvent, onTouchMove);
+                    scrollbar_scrollthumb_value_r();
                 });
                 a.addEventListener('scroll', function () {
                     const contentHeight = a.scrollHeight;
@@ -426,8 +441,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     const scrollThumbWidth = Math.max((viewportWidth / contentWidth) * scrollbarWidth, 30);
                     scrollThumb.style.width = `${scrollThumbWidth}px`;
                 }
+                let scrollbar_scrollthumb_value = () => {
+                    if (isTouchDevice) {
+                        scrollbar.style.visibility = 'visible';
+                        scrollbar.style.height = '20px';
+                        scrollThumb.style.height = '20px';
+                    }
+                }
+                let scrollbar_scrollthumb_value_r = () => {
+                    if (isTouchDevice) {
+                        scrollbar.style.visibility = 'hidden';
+                        scrollbar.style.height = '15px';
+                        scrollThumb.style.height = '15px';
+                    }
+                }
                 scrollbar.addEventListener(startEvent, function (event) {
-                    scrollbar.style.visibility = 'visible';
+                    scrollbar_scrollthumb_value();
                     document.body.style.cursor = 'grab';
                     const clickPosition = isTouchDevice ? event.touches[0].clientX - scrollbar.getBoundingClientRect().left : event.clientX - scrollbar.getBoundingClientRect().left;
                     const thumbWidth = scrollThumb.getBoundingClientRect().width;
@@ -446,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
                 scrollThumb.addEventListener(startEvent, function (e) {
-                    scrollbar.style.visibility = 'visible';
+                    scrollbar_scrollthumb_value();
                     document.body.style.cursor = 'grab';
                     isDragging = true;
                     startX = isTouchDevice ? e.touches[0].clientX - scrollThumb.offsetLeft : e.clientX - scrollThumb.offsetLeft;
@@ -454,7 +483,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     e.preventDefault();
                 });
                 function onMouseMove(e) {
-                    scrollbar.style.visibility = 'visible';
+                    scrollbar_scrollthumb_value();
                     if (isDragging) {
                         let newLeft = isTouchDevice ? e.touches[0].clientX - startX : e.clientX - startX;
                         newLeft = Math.max(newLeft, 0);
@@ -474,6 +503,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     isDragging = false;
                     document.body.style.cursor = 'auto';
                     document.removeEventListener(moveEvent, onMouseMove);
+                    scrollbar_scrollthumb_value_r();
                 }
                 scrollThumb.addEventListener(startEvent, () => {
                     document.addEventListener(moveEvent, onMouseMove);
