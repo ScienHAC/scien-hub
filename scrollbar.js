@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.body.style.cursor = 'auto';
                     document.removeEventListener(moveEvent, onTouchMove);
                 });
-                a.addEventListener('scroll', function () {
+                a.addEventListener(scrollEvent, function () {
                     const contentHeight = a.scrollHeight;
                     const viewportHeight = a.offsetHeight;
                     const scrollTop = a.scrollTop;
@@ -485,7 +485,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const thumbLeft = scrollPercent * maxThumbLeft;
                     scrollThumb.style.left = `${thumbLeft}px`;
                 });
-                a.addEventListener('scroll', (e) => {
+                a.addEventListener(scrollEvent, (e) => {
                     const pxToVw = (scrollThumb.offsetWidth / a.offsetWidth) * 100;
                     const totalWidth = a.scrollWidth - a.clientWidth;
                     const initialThumbLeft = (parseInt(scrollThumb.style.left) + scrollThumb.offsetWidth) / a.offsetWidth * 100 - pxToVw;
