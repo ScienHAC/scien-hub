@@ -2477,3 +2477,10 @@ code {
         width: 15px;
     }
 }
+
+
+
+body{
+    display: none !important;
+    background: red;
+}
