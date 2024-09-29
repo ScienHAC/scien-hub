@@ -1,3 +1,7 @@
+body{
+    background-color: red;
+}
+
 #btnjs, #HTML14, #HTML15{
     display: none;
 }
